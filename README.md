@@ -15,9 +15,17 @@ kafka-topics --create \
 --partitions 1 \
 --topic output-topic
 
+kafka-console-producer --bootstrap-server localhost:9092 \
+--topic input-topic
+
+kafka-console-consumer --topic output-topic --from-beginning \
+--bootstrap-server localhost:9092
 
 kafka-console-producer --bootstrap-server localhost:9092 \
-                            --topic input-topic
+                            --topic stream-ledger
 
-kafka-console-consumer --topic input-topic --from-beginning \
-                             --bootstrap-server localhost:9092# spring-kafka
+kafka-console-consumer --topic stream-from-transaction --from-beginning \
+                            --bootstrap-server localhost:9092
+
+kafka-console-consumer --topic stream-to-transaction --from-beginning \
+                            --bootstrap-server localhost:9092
