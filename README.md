@@ -19,5 +19,5 @@ kafka-topics --create \
 kafka-console-producer --bootstrap-server localhost:9092 \
                             --topic input-topic
 
-kafka-console-consumer --topic input-topic --from-beginning \
-                             --bootstrap-server localhost:9092# spring-kafka
+kafka-console-consumer --topic output-topic --from-beginning \
+                             --bootstrap-server localhost:9092
